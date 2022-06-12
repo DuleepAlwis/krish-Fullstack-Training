@@ -37,7 +37,7 @@ public class SinglyLinkedList {
 		
 		ll_p.reverseLinkedList();
 		String reversedStr = ll_p.createString();
-		System.out.println("palindrome : "+palindrome+" "+reversedStr);
+		System.out.println("palindrome : "+palindrome+" Reversed : "+reversedStr);
 		System.out.println("Ispalindrome : "+palindrome.equalsIgnoreCase(reversedStr));
 
 		
