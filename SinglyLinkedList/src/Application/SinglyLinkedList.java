@@ -75,6 +75,8 @@ class LinkedList{
 		
 		if(root==null) {
 			root = node;
+			System.out.println("Node added to the linked list {"+val.val+"}");
+
 		}else {
 			Node cur = root;
 			while(cur.next!=null) {
