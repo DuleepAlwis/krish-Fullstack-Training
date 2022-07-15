@@ -10,6 +10,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+import com.Demo.DAO.EmployeeDAO;
+
 /**
  * Servlet implementation class EmployeeServlet
  */
@@ -67,11 +69,14 @@ public class EmployeeServlet extends HttpServlet {
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println(request.toString());
+		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
-		String dob = request.getParameter("dob");
-		String salary = request.getParameter("salary");
+		String address = request.getParameter("address");
 		
-		System.out.println("Emp Info :"+name+" "+dob+" "+salary);
+		System.out.println("Emp Info :"+id+" "+name+" "+address);
+		EmployeeDAO empDao = new EmployeeDAO();
+		empDao.getConnection();
+		empDao.saveEmployee(id, name, address);
 	}
 
 }

@@ -11,9 +11,9 @@
 	<div>
 		<form action="EmployeeServlet" method="POST">
 			<table>
+				<tr><td>Employee id : </td><td><input type="number" value="" name="id"/></td></tr>
 				<tr><td>Employee name : </td><td><input type="text" value="" name="name"/></td></tr>
-				<tr><td>Employee DOB : </td><td><input type="date" value="" name="dob"/></td></tr>
-				<tr><td>Salary </td><td><input type="text" name="salary"/></td></tr>
+				<tr><td>Address </td><td><input type="text" name="address"/></td></tr>
 				<tr><td><input type="submit" value="Save"/></td><td><input type="reset" value="Clear"/></td></tr>
 				
 			</table>
