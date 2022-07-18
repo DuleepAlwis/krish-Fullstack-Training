@@ -17,7 +17,7 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity,Integer
 	
 	 public List<EmployeeEntity> findAll();
 	
-	 @Query("select e from EmployeeEntity e where name=?1")
+	 @Query(value="select e from EmployeeEntity e where name=?1", nativeQuery=false)
 	 public EmployeeEntity getByName(String name);
 	
 }
