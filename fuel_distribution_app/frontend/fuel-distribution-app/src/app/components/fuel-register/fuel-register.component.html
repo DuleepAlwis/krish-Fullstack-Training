@@ -1,0 +1,75 @@
+<app-app-header></app-app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <form [formGroup]="orderForm" (ngSubmit)="saveOrder()">
+                <div class="form-group row mt-5">
+                  <label class="col-sm-2 col-form-label" for="gasid">Gas station id</label>
+                  <div class="col-sm-3">
+                    <input type="text" id="gasid" required class="form-control" formControlName="gasSid">
+                  </div>
+                  <label class="col-sm-2 col-form-label" for="gasSname">Gas station name</label>
+                  <div class="col-sm-3">
+                    <input type="text" id="gasSname" required class="form-control" formControlName="name">
+                  </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label class="col-sm-2 col-form-label" for="gasSid">Type of fuel needed</label>
+                    <div class="col-sm-3">
+                      <select class="form-control" required formControlName="type">
+                        <option>92 Octane</option>
+                            
+                            <option>95 Octane</option>
+                            <option> Super Diesel</option>
+
+                           
+                      
+                      </select> 
+                    </div>
+                    <label class="col-sm-2 col-form-label" for="gasSname">Amount needed in Litres</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" required formControlName="amount">
+                            <option>3300</option>
+                               <option>6000</option> 
+                               <option>13200</option>
+                            
+                          </select> 
+                    </div>
+                </div>
+                <div class="form-group row mt-5">
+                    
+                    <label class="col-sm-4 col-form-label" for="gasSname">Location of the gas station</label>
+                    
+                </div>
+                <div class="form-group row mt-1">
+                    
+                    <label class="col-sm-2 col-form-label" for="addressTag">Address</label>
+                    <div class="col-sm-3">
+                       <input type="text" class="form-control" required formControlName="address" id="addressTag"/>
+                    </div>
+                    <label class="col-sm-2 col-form-label" for="cityTag">City</label>
+                    <div class="col-sm-3">
+                       <input type="text" class="form-control" required formControlName="city" id="cityTag"/>
+                    </div>
+                    
+                </div>
+                <div class="form-group row mt-5">
+                    
+                    <label class="col-sm-2 col-form-label" for="districtTag">District</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" required formControlName="district" id="districtTag"/>
+                     </div>
+                </div>
+                <div class="form-group row mt-5">
+                    <span class="col-sm-2 ml-5"></span>
+
+                    <input type="submit" class="btn btn-primary col-sm-2" value="Save"/>
+                    <span class="col-sm-2 ml-5"></span>
+
+                    <input type="reset" class="btn btn-primary col-sm-2 ml-5" value="Cancel"/>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

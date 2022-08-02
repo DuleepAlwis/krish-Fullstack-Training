@@ -1,0 +1,23 @@
+<app-app-header></app-app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+            <div class="table_outer">
+                <table class="table table-striped">
+                    <tr scope="row">
+                        <th scope="col">Order ID  </th><th scope="col">Gas station id  </th><th scope="col">Gas station name</th>
+                        <th scope="col">Requested Amount(Litres)</th>  <th scope="col"></th>
+                    </tr>
+                    <tr scope="row" *ngFor="let item of orders; index as i;">
+                    <td>{{item.id}}</td>    <td>{{item.gasStId}}</td><td>{{item.gasStName}}</td><td>{{item.amount_needed}}</td><td><button class="btn" (click)="dispatchOrder(item.id)">Dispatch Order</button></td>
+                    </tr>
+                </table>
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</div>

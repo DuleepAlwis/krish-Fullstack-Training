@@ -1,0 +1,56 @@
+Horizontal scaling means:- creating multiple instance of the service in order to handle heavy traiffic 
+
+There are two types of deployments
+ Blue-Green Deployment
+Assuming there are 2 versions running and the 2nd being the latest and having  2 servers, we keep the old version in one server 
+while having the latest version in the other. Then carry on the usual traffic. Afterwards we switch it and do the same.
+
+
+
+
+Assignment 
+Structure
+fuel distrubution system with microservice architecture
+
+order(Name,location,type of fuel[92,95,diesel,petrol],capacity[3300,6600,13200]):- order service 
+
+sends a mesg to the mesg broker
+
+inventory service listens and clarifies abt the capacity.
+If possible responds with "Allocation complete" to kafka
+after assigning a vehicle in schedule service it should send a msg saying "delevery schduled"
+
+in dispatch service when clicked it should send a msg syaing "order dispathced " (In the UI we can just click it)
+
+after receiving a the oder the gas stattion can complete the order
+
+CPC endpoints: submit, check order
+
+UI pages
+Order submit 
+check status
+order confirm
+order report
+
+atleast 1 service should be java and Node or Nest
+UI react or Angular
+Deadline 5th and 8th
+
+
+EX
+Available qty: 100000
+Gas st. A placed order of: 10000
+Dispatched
+available qty: 90000
+
+Gas st. B placed order of: 5000
+available qty: 85000
+
+Reservation - usable stock
+Dispatched - available stock
+
+
+
+
+
+ 
