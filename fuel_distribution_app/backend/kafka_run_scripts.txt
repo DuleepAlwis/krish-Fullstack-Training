@@ -1,6 +1,11 @@
 3#Kafka consumed to consumer from D:\kafka_2.12-3.2.0\kafka_2.12-3.2.0\bin\windows>
 .\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic OrderCreate --from-beginning
 
+4.#kafkar consumed to order dispatch from D:\kafka_2.12-3.2.0\kafka_2.12-3.2.0\bin\windows>
+.\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic DispatchOrder --from-beginning
+
+
+
 1#Running zookeeper from D:\kafka_2.12-3.2.0\kafka_2.12-3.2.0>
 bin\windows\zookeeper-server-start.bat config/zookeeper.properties
 

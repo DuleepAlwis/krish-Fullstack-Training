@@ -31,7 +31,7 @@ public class OrderService {
 		
 		OrderEntity res = orderRepo.save(order);
 		if(res!=null) {
-			sendMessage(String.valueOf(res.getId()));
+			//sendMessage(String.valueOf(res.getId()));
 			return true;
 		}
 		else {
@@ -42,5 +42,27 @@ public class OrderService {
 	
 	public List<OrderEntity> getPendingOrders(){
 		return this.orderRepo.getPendingOrders();
+	}
+	
+	public List<OrderEntity> getAllOrders(){
+		return this.orderRepo.getAllOrders();
+	}
+	
+	public boolean updateAllocationFuel(long id) {
+		if( this.orderRepo.updateFuelAllocation(id)>0) {
+			sendMessage(String.valueOf(id));
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean removeOrder(long id) {
+		if(this.orderRepo.removeOrder(id)>0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

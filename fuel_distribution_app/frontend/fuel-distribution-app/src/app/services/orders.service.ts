@@ -32,4 +32,16 @@ export class OrdersService {
   public setStatusToDispatch(id){
     return this.http.put<Boolean>(this.dispatchOrder+"/dispatch/order/"+id,null);
   }
+
+  public getAllOrders():Observable<OrderDTO[]>{
+    return this.http.get<OrderDTO[]>(this.base_url+"/order/getAllOrders");
+  }
+
+  public allocateFuel(id){
+    return this.http.put<Boolean>(this.base_url+"/order/allocateFuel/"+id,null);
+  }
+
+  public removeOrder(id){
+    return this.http.delete<Boolean>(this.base_url+"/order/removeOrder/"+id);
+  }
 }

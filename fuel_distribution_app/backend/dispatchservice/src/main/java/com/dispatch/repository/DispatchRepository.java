@@ -14,11 +14,12 @@ import com.dispatch.entity.OrderEntity;
 @Repository
 public interface DispatchRepository extends JpaRepository<OrderEntity,Long>{
 
+	//Delivery sheduled status =2
 	@Modifying
 	@Transactional
-	@Query(value="update order_tb set status = 1 where id = ?1", nativeQuery= true)
+	@Query(value="update order_tb set status = 2 where id = ?1", nativeQuery= true)
 	public int updateStatusDispatch(long id);
 	
-	@Query(value="select * from order_tb where status=0",nativeQuery = true)
+	@Query(value="select * from order_tb where status=1",nativeQuery = true)
 	public List<OrderEntity> getAllPendingOrders();
 }

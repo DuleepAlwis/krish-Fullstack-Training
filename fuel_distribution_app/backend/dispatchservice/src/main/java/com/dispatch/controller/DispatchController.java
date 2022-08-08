@@ -28,6 +28,7 @@ public class DispatchController {
 	
 	@RequestMapping(value="/pendingDeliveryOrders",method=RequestMethod.GET)
 	public List<OrderEntity> pendingDeliveryOrders(){
+		System.out.println("Hello world");
 		return this.dispatchService.getAllPendingOrders();
 	}
 }

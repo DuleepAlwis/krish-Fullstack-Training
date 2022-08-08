@@ -22,4 +22,10 @@ public interface FuelRepository extends JpaRepository<FuelProp,Long> {
     @Transactional 
 	@Query(value="update fuel_props set stock_amount = stock_amount + ?1 where name='Reserved_Stock'",nativeQuery=true)
 	public int updateReservedFuel(float amount);
+	
+	//Fuel need to be allocated status = 0
+	@Modifying
+    @Transactional 
+	@Query(value="update order_tb set status = 0 where id=?1",nativeQuery=true)
+	public int updateFuelAllocationToOrder(long id);
 }

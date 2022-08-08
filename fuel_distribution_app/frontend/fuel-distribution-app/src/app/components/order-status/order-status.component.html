@@ -8,10 +8,16 @@
                 <table class="table table-striped">
                     <tr scope="row">
                         <th scope="col">Order ID  </th><th scope="col">Gas station id  </th><th scope="col">Gas station name</th>
-                        <th scope="col">Requested Amount(Litres)</th>  <th scope="col">Status</th>
+                        <th scope="col">Requested Amount(Litres)</th>  <th scope="col">Status</th><th></th>
                     </tr>
                     <tr scope="row" *ngFor="let item of orders; index as i;">
                     <td>{{item.id}}</td>    <td>{{item.gasStId}}</td><td>{{item.gasStName}}</td><td>{{item.amount_needed}}</td><td>{{item.status}}</td>
+                    <td *ngIf="item.status=='Allocation pending'">
+                        <button class="btn" (click)="allocateFuel(item.id)">Allocate Fuel</button>
+                    </td>
+                    <td *ngIf="item.status=='Delivery Scheduled'">
+                        <button class="btn" (click)="allocateVehicle(item.id)">Allocate Vehicle</button>
+                    </td>
                     </tr>
                 </table>
             </div>

@@ -1,1 +1,28 @@
-<app-app-header></app-app-header>>
+<app-app-header></app-app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+            <h3>Report of Orders</h3>
+            <div class="table_outer">
+                <table class="table table-striped">
+                    <tr scope="row">
+                        <th scope="col">Order ID  </th><th scope="col">Gas station id  </th><th scope="col">Gas station name</th>
+                        <th scope="col">Requested Amount(Litres)</th>  <th scope="col">Status</th><th>Address</th><th></th>
+                    </tr>
+                    <tr scope="row" *ngFor="let item of orders; index as i;">
+                    <td>{{item.id}}</td>    <td>{{item.gasStId}}</td><td>{{item.gasStName}}</td><td>{{item.amount_needed}}</td><td>{{item.status}}</td>
+                    <td>{{item.address +" ,"+item.city+", "+item.district}}</td>    
+                    <td *ngIf="item.status=='Vehicle allocated'">
+                            <button class="" style="border-radius: 23px;color:red" (click)="removeOrder(item.id)">X</button>
+                        </td>
+                </tr>
+                </table>
+            </div>
+           
+        </div>
+        
+    </div>
+    
+</div>

@@ -38,6 +38,7 @@ export class FuelRegisterComponent implements OnInit {
     order.district = this.orderForm.get("district").value;
     order.address = this.orderForm.get("address").value;
 
+    
     this.orderService.saveOrder(order).subscribe(
       res=>{
         if(res==true){

@@ -36,6 +36,9 @@ public class InventoryListener {
 		 */
     	System.out.println("Order id "+payload.value());
     	
+    	if(payload.value().contains("Allocation")){
+    		return;
+    	}
     	Long id = Long.parseLong(payload.value());
     	
     	OrderEntity orderEnt = orderRepo.getOrderDetails(id);
@@ -44,11 +47,18 @@ public class InventoryListener {
     	
     	float remainingFuel = fuelEnt.getStock()-orderEnt.getAmount_needed();
     	
-    	fuelRepo.updateReservedFuel(orderEnt.getAmount_needed());
-    	fuelRepo.updateAvailableFuel(remainingFuel);
+    	if(remainingFuel>=0) {
+    		fuelRepo.updateReservedFuel(orderEnt.getAmount_needed());
+        	fuelRepo.updateAvailableFuel(remainingFuel);
+        	
+        	
+        	sendMessage("Allocation done for the order id "+String.valueOf(orderEnt.getId()));
+    	}else {
+    		fuelRepo.updateFuelAllocationToOrder(id);
+        	sendMessage("Allocation not done for the order id "+String.valueOf(orderEnt.getId())+ " because remaining fuel not sufficient");
+
+    	}
     	
-    	
-    	sendMessage("Allocation done for the order id "+String.valueOf(orderEnt.getId()));
     	
     	
     	

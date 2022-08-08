@@ -32,11 +32,10 @@ export class SheduledOrdersComponent implements OnInit {
       res=>{
         if(res==true){
           alert("Order dispatched");
-          var ordersTmp = this.orders;
-          this.orders = [];
+          
           for(var i=0;i<this.orders.length;i++){
-            if(this.orders[i].id!=id){
-              this.orders[i] = ordersTmp[i];
+            if(this.orders[i].id==id){
+              this.orders.splice(i,1);
             }
           }
         }else{
